@@ -3,6 +3,8 @@ on:
   workflow_dispatch:
   push:
     branches: ["main"]
+  schedule:
+    - cron: "0 14 * * 1-5" # run at 2pm UTC every day
 permissions:
   contents: write
 jobs:
