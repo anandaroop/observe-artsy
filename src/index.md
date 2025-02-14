@@ -67,6 +67,8 @@ Here are some ideas of things you could try…
   </div>
 </div>
 
+Hello, cron job
+
 <style>
 
 .hero {
