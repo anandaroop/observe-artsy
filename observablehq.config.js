@@ -9,10 +9,12 @@ export default {
   pages: [
     {
       name: "Sites",
-      pages: [
-        {name: "Torque", path: "/sites/torque"},
-      ]
-    }
+      pages: [{ name: "Torque", path: "/sites/torque" }],
+    },
+    {
+      name: "Features",
+      pages: [{ name: "Location filter", path: "/features/location-filter" }],
+    },
   ],
 
   // Content to add to the head of the page, e.g. for a favicon:
