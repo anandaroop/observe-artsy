@@ -26,6 +26,12 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          REDSHIFT_HOST: ${{ vars.REDSHIFT_HOST }}
+          REDSHIFT_PORT: ${{ vars.REDSHIFT_PORT }}
+          REDSHIFT_DB: ${{ vars.REDSHIFT_DB }}
+          REDSHIFT_USER: ${{ secrets.REDSHIFT_USER }}
+          PGPASSWORD: ${{ secrets.PGPASSWORD }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
