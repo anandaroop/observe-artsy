@@ -4,7 +4,7 @@ on:
   push:
     branches: ["main"]
   schedule:
-    - cron: "20 14 * * 5" # run once on Friday
+    - cron: "0 13 * * 1-5" # every weekday morning (13:00 UTC)
 permissions:
   contents: write
 jobs:
