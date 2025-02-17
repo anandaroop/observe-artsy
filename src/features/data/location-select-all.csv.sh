@@ -25,6 +25,8 @@ FROM
 WHERE
   sent_at >= CURRENT_TIMESTAMP - INTERVAL '30 days'
   and facet = 'locationCities'
+ORDER BY
+  sent_at DESC
 ;
 EOF
 )

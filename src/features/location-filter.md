@@ -175,3 +175,38 @@ const search = view(Inputs.search(dataset));
 ```js
 display(Inputs.table(search));
 ```
+
+---
+
+## Visit
+
+Apply the location filter terms to the corresponding pages to repro recent user behavior.
+
+<table class="visit">
+  <thead>
+    <tr>
+      <th class="term">Filter&nbsp;term</th>
+      <th class="page">Page</th>
+    </tr>
+  </thead>
+  <tbody>
+    ${cleanEvents.map(e => {
+      const page = [e.context_page_path, e.context_page_search].join("")
+      return (
+        html`<tr>
+          <td class="term">${e.query}</td>
+          <td class="page"><a href="https://www.artsy.net${page}" target="artsy">${page}</a></td>
+        </tr>`
+      )
+    })}
+  </tbody>
+</table>
+
+<style>
+table.visit td {
+  padding: 0.5em 0.5em;
+}
+table.visit td.term {
+  text-wrap: nowrap;
+}
+</style>
