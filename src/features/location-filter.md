@@ -16,12 +16,12 @@ const cleanEvents = events
       path,
       query: query.toLowerCase().trim(),
       date: new Date(sent_at),
-      isAdmin: JSON.parse(roles || "[]").includes("admin"),
+      isTeam: JSON.parse(roles || "[]").includes("team"),
     };
   })
   .filter((event) => {
-    if (excludeAdmins) {
-      return !event.isAdmin;
+    if (excludeTeam) {
+      return !event.isTeam;
     }
     return true;
   });
@@ -36,8 +36,8 @@ const cleanEvents = events
 This acts as a proxy for the adoption of the enhanced artwork location filtering.
 
 ```js
-const excludeAdmins = view(
-  Inputs.toggle({ label: "Exclude admins?", value: false })
+const excludeTeam = view(
+  Inputs.toggle({ label: "Exclude Artsy team?", value: false })
 );
 ```
 
