@@ -163,14 +163,14 @@ const distanceFn = view(
 ```js
 const eps = view(
   distanceFn === "cosine"
-    ? Inputs.range([0, 1], { label: "Epsilon", value: 0.3, step: 0.05 })
+    ? Inputs.range([0, 1], { label: "Epsilon", value: 0.25, step: 0.05 })
     : Inputs.range([1, 100], { label: "Epsilon", value: 3, step: 1 })
 );
 ```
 
 ```js
 const minPts = view(
-  Inputs.range([0, 10], { label: "Min points", value: 0, step: 1 })
+  Inputs.range([0, 10], { label: "Min points", value: 1, step: 1 })
 );
 ```
 
