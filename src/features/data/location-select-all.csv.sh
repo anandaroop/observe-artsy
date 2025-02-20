@@ -31,4 +31,4 @@ ORDER BY
 EOF
 )
 
-psql -h "${REDSHIFT_HOST}" -p "${REDSHIFT_PORT}" -d "${REDSHIFT_DB}" -U "${REDSHIFT_USER}" -c "${QUERY}" --csv
+psql -h "${PGHOST}" -p "${PGPORT}" -d "${PGDATABASE}" -U "${PGUSER}" -c "${QUERY}" --csv
