@@ -66,14 +66,29 @@ display(
 display(
   Plot.plot({
     width,
-    height: 60,
+    height: 200,
     x: { interval: "day" },
     marks: [
-      Plot.waffleY(
+      Plot.barY(
         cleanEvents,
         Plot.binX(
           { y: "count" },
           { x: "date", thresholds: d3.utcDay, fill: "#999", tip: true }
+        )
+      ),
+      Plot.text(
+        cleanEvents,
+        Plot.binX(
+          { text: "count", y: "count" },
+          {
+            x: "date",
+            thresholds: d3.utcDay,
+            fill: "white",
+            dy: 12,
+            fontSize: 14,
+            fontWeight: "bold",
+            tip: true,
+          }
         )
       ),
     ],
@@ -190,7 +205,7 @@ Apply the location filter terms to the corresponding pages to repro recent user 
     </tr>
   </thead>
   <tbody>
-    ${cleanEvents.map(e => {
+    ${_.sortBy(cleanEvents, e => e.query).map(e => {
       const page = [e.context_page_path, e.context_page_search].join("")
       return (
         html`<tr>
@@ -203,6 +218,10 @@ Apply the location filter terms to the corresponding pages to repro recent user 
 </table>
 
 <style>
+table.visit {
+  /* make this important */
+  max-width: 100% ;
+}
 table.visit td {
   padding: 0.5em 0.5em;
 }
