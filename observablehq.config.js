@@ -13,7 +13,10 @@ export default {
     },
     {
       name: "Features",
-      pages: [{ name: "Location filter", path: "/features/location-filter" }],
+      pages: [
+        { name: "Location filter", path: "/features/location-filter" },
+        { name: "Curation", path: "/features/curations" },
+      ],
     },
   ],
 
