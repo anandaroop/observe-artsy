@@ -19,6 +19,7 @@ const plot = Plot.plot({
   height: 200,
   x: { label: "Curation date", interval: "day" },
   y: { label: "Artworks" },
+  color: { label: "Collection" },
   marks: [
     Plot.waffleY(
       curations,
