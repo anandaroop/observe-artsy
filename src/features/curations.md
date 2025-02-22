@@ -1,6 +1,5 @@
 ```js
-import { ArtworkBrick } from "/components/artwork-brick.js";
-ArtworkBrick.addStyles({ size });
+import { CurationReport } from "./components/CurationReport.js";
 ```
 
 ```js
@@ -43,40 +42,40 @@ const plot = Plot.plot({
 display(plot);
 ```
 
-```js
-const size = view(
-  Inputs.radio(["small", "medium", "large"], {
-    label: "Thumbnails",
-    value: "medium",
-  })
+```tsx
+/*
+Get the curations csv into a hierarchical format that looks like…
+
+const artworksByDateAndCollection = {
+  "2025-02-20": {
+    "Best Bids": [
+      { "artwork_slug": "tim-berg-and-rebekah-myers-all-that-glitters",
+        "collection_title": "Best Bids",
+        "curated_at": "2025-02-20 14:32:13.419671" … },
+      { "artwork_slug": "stanley-whitney-untitled-2784",
+        "collection_title": "Best Bids",
+        "curated_at": "2025-02-20 14:32:13.398133" … }
+    ],
+    "Flora and Fauna": [
+      { "artwork_slug": "rudy-cremonini-pianta",
+        "collection_title": "Flora and Fauna",
+        "curated_at": "2025-02-19 17:15:24.93443" … },
+      …
+    ]
+  },
+  "2025-02-19": {
+    …
+  }
+}
+*/
+
+const artworksByDate = _.groupBy(curations, (d) => d.curation_date);
+const artworksByDateAndCollection = _.mapValues(artworksByDate, (day) =>
+  _.groupBy(day, (d) => d.collection_title)
 );
-```
 
-```js
-let lastDate = undefined;
-let lastCollection = undefined;
-
-curations.map((curation) => {
-  if (curation.curation_date != lastDate) {
-    lastDate = curation.curation_date;
-    display(html`<h2>${lastDate}</h2>`);
-  }
-
-  if (curation.collection_slug != lastCollection) {
-    lastCollection = curation.collection_slug;
-    display(
-      html`<h3>
-        <a
-          href="https://www.artsy.net/collection/${curation.collection_slug}"
-          target="artsy"
-          >${curation.collection_title}</a
-        >
-      </h3>`
-    );
-  }
-
-  display(ArtworkBrick.render(curation));
-});
+// Then render the hierarhical data with a React component
+display(<CurationReport data={artworksByDateAndCollection} />);
 ```
 
 <style>
