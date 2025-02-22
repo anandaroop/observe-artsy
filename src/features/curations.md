@@ -1,5 +1,41 @@
 ```js
-const curations = await FileAttachment("data/curations.csv").csv();
+const curations = (await FileAttachment("data/curations.csv").csv()).map(
+  (c) => ({
+    ...c,
+    curated_at_date: new Date(c.curated_at),
+  })
+);
+```
+
+# Curation by day
+
+```js
+const plot = Plot.plot({
+  width,
+  height: 200,
+  x: { label: "Curation date", interval: "day" },
+  y: { label: "Artworks" },
+  marks: [
+    Plot.waffleY(
+      curations,
+      Plot.binX(
+        { y: "count" },
+        {
+          x: "curated_at_date",
+          fill: "collection_title",
+          tip: {
+            format: {
+              x: false,
+              y: (d) => `${d} works`,
+            },
+          },
+        }
+      )
+    ),
+  ],
+});
+
+display(plot);
 ```
 
 ```js
@@ -49,6 +85,12 @@ function renderArtworkBrick({
 
 body {
   font-family: var(--sans-serif);
+}
+
+h1 {
+  max-width: 100% !important;
+  font-size: 4em;
+  color: var(--theme-foreground-faint);
 }
 
 h2 {
