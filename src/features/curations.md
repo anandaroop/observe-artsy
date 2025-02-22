@@ -1,6 +1,6 @@
 ```js
 import { ArtworkBrick } from "/components/artwork-brick.js";
-ArtworkBrick.addStyles();
+ArtworkBrick.addStyles({ size });
 ```
 
 ```js
@@ -41,6 +41,15 @@ const plot = Plot.plot({
 });
 
 display(plot);
+```
+
+```js
+const size = view(
+  Inputs.radio(["small", "medium", "large"], {
+    label: "Thumbnails",
+    value: "medium",
+  })
+);
 ```
 
 ```js

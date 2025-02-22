@@ -42,7 +42,14 @@ export class ArtworkBrick {
   artwork: Artwork;
 
   static addStyles(options: StyleOptions) {
+    const existing = document.getElementById("artwork-brick-styles");
+    if (existing) {
+      existing.textContent = this.css(options);
+      return;
+    }
+
     const style = document.createElement("style");
+    style.id = "artwork-brick-styles";
     style.textContent = this.css(options);
     document.head.appendChild(style);
   }
