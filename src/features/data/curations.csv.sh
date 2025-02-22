@@ -4,6 +4,9 @@ QUERY=$(cat <<EOF
 SELECT
   mca.created_at AS curated_at,
   to_char(mca.created_at, 'yyyy-mm-dd') AS curation_date,
+  a.id AS artist_id,
+  a.slug AS artist_slug,
+  a.name AS artist_name,
   w.id AS artwork_id,
   w.slug AS artwork_slug,
   w.title AS artwork_title,
@@ -23,6 +26,7 @@ SELECT
 FROM
   gravity.marketing_collection_artworks mca
   LEFT JOIN gravity.artworks w ON w.id = mca.artwork_id
+  LEFT JOIN gravity.artists a ON a.id = w.artist_id
   LEFT JOIN gravity.marketing_collections mc ON mc.id = mca.marketing_collection_id
 WHERE
   w.published IS TRUE

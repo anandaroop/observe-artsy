@@ -1,4 +1,9 @@
 ```js
+import { ArtworkBrick } from "/components/artwork-brick.js";
+ArtworkBrick.addStyles();
+```
+
+```js
 const curations = (await FileAttachment("data/curations.csv").csv()).map(
   (c) => ({
     ...c,
@@ -61,24 +66,8 @@ curations.map((curation) => {
     );
   }
 
-  display(renderArtworkBrick(curation));
+  display(ArtworkBrick.render(curation));
 });
-```
-
-```js
-function renderArtworkBrick({
-  artwork_slug,
-  artwork_title,
-  artwork_thumbnail_url,
-}) {
-  return html`
-    <a href="https://www.artsy.net/artwork/${artwork_slug}" target="artsy">
-      <div class="artwork-brick">
-        <div><img src="${artwork_thumbnail_url}" /></div>
-      </div>
-    </a>
-  `;
-}
 ```
 
 <style>
@@ -108,15 +97,6 @@ h3 {
   margin: 1em 0 1em 0;
   padding-top: 0.5em;
   border-top: solid 4px var(--theme-foreground-focus);
-}
-
-.artwork-brick {
-  display: inline-block;
-}
-
-.artwork-brick img {
-  width: 115px;
-  height: 115px;
 }
 
 </style>
