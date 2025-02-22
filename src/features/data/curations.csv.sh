@@ -29,7 +29,8 @@ WHERE
   AND mc.published IS TRUE
   AND mca.created_at >= CURRENT_TIMESTAMP - INTERVAL '14 days'
 ORDER BY
-  mca.created_at desc
+  curation_date desc,
+  collection_title asc
 EOF
 )
 
