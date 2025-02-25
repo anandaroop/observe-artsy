@@ -23,7 +23,7 @@ How often are color filter results identified _correctly_ by observers?
 const plot = Plot.plot({
   marginLeft: 80,
   marks: [
-    Plot.barX(
+    Plot.waffleX(
       answers.filter((a) => a.is_correct),
       Plot.groupY(
         { x: "count" },
@@ -44,7 +44,7 @@ How often are color filter results identified _incorrectly_ by observers?
 const plot = Plot.plot({
   marginLeft: 80,
   marks: [
-    Plot.barX(
+    Plot.waffleX(
       answers.filter((a) => !a.is_correct),
       Plot.groupY(
         { x: "count" },
