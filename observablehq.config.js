@@ -8,16 +8,16 @@ export default {
   // lets you organize them into sections and have unlisted pages.
   pages: [
     {
-      name: "Sites",
-      pages: [{ name: "Torque", path: "/sites/torque" }],
-    },
-    {
       name: "Features",
       pages: [
         { name: "Location filter", path: "/features/location-filter" },
         { name: "Curation", path: "/features/curations" },
         { name: "Color Quiz", path: "/features/color-quiz" },
       ],
+    },
+    {
+      name: "Sites",
+      pages: [{ name: "Torque", path: "/sites/torque" }],
     },
   ],
 
