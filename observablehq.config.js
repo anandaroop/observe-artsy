@@ -19,6 +19,10 @@ export default {
       name: "Sites",
       pages: [{ name: "Torque", path: "/sites/torque" }],
     },
+    {
+      name: "Reports",
+      pages: [{ name: "Artist links", path: "/reports/artist-links" }],
+    },
   ],
 
   // Content to add to the head of the page, e.g. for a favicon:
