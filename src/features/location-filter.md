@@ -10,6 +10,8 @@ const cleanEvents = events
     let path = context_page_path;
     path = path.replace(/\/artist\/[-\w]+/, "/artist/:id");
     path = path.replace(/\/collection\/[-\w]+/, "/collection/:id");
+    path = path.replace(/\/gene\/[-\w]+/, "/gene/:id");
+    path = path.replace(/\/artist-series\/[-\w]+/, "/artist-series/:id");
 
     return {
       ...event,
@@ -60,7 +62,7 @@ display(
 );
 ```
 
-## By day
+## Volume by day
 
 ```js
 display(
