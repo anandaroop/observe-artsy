@@ -1,5 +1,5 @@
 ---
-title: Observations
+title: Dashboard
 ---
 
-# Observations
+# Dashboard
