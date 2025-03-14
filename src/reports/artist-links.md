@@ -36,7 +36,7 @@ display(
       "artist_follow_count",
     ],
     header: {
-      http_status: "Broken Link Code",
+      http_status: "Status",
       url: "Broken Link URL",
       artist_slug: "Artist page",
       artist_is_target_supply: "Target supply?",
