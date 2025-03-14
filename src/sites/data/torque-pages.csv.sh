@@ -16,6 +16,7 @@ WHERE
     AND path <> '/'
     AND path <> '/stats'
     AND name <> 'Roop'
+    AND name <> 'Joey Aghion'
 ORDER BY
     p.sent_at desc
 ;
