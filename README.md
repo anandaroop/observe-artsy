@@ -1,14 +1,30 @@
-# Framework Site
+# Observe Artsy
 
-This is an [Observable Framework](https://observablehq.com/framework/) app. To install the required dependencies, run:
+An experimental dashboard for Artsy-related data, built with [Observable Framework](https://observablehq.com/framework/).
 
-```
+## Setup
+
+### Install
+
+To install the required dependencies, run:
+
+```sh
 yarn install
 ```
 
+### Configure
+
+```sh
+cp .env.example.sh .env.sh
+```
+
+Update `.env.sh` with the necessary credentials and secrets
+
+### Run
+
 Then, to start the local preview server, run:
 
-```
+```sh
 yarn dev
 ```
 
