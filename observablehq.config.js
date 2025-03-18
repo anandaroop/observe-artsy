@@ -12,7 +12,6 @@ export default {
       pages: [
         { name: "Location filter", path: "/features/location-filter" },
         { name: "Curation", path: "/features/curations" },
-        { name: "Color Quiz", path: "/features/color-quiz" },
       ],
     },
     {
@@ -22,6 +21,10 @@ export default {
     {
       name: "Reports",
       pages: [{ name: "Artist links", path: "/reports/artist-links" }],
+    },
+    {
+      name: "Miscellaneous",
+      pages: [{ name: "Color Quiz", path: "/features/color-quiz" }],
     },
   ],
 
