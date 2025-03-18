@@ -15,6 +15,12 @@ const answers = (await FileAttachment("./data/color-quiz.json").json()).map(
 
 # Color Quiz Answers
 
+```js
+const uniqueUsers = _.uniq(answers.map((a) => a.user_id));
+```
+
+Received **${answers.length}** answers from **${uniqueUsers.length}** unique users
+
 <br/>
 
 ## Success rate
